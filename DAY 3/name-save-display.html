@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Save-Display-Name</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background-color: #99bc85;
+      }
+      .outer {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .inner {
+        display: inline-block;
+        text-align: center;
+        background-color: gray;
+        border: 2px solid black;
+      }
+      #heading {
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: rgb(50, 50, 50);
+        color: white;
+        padding: 5px;
+      }
+      input {
+        padding: 5px 3px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 5px 8px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      #container {
+        text-align: center;
+        background-color: rgb(50, 50, 50);
+        color: white;
+        font-size: 1.2em;
+      }
+      footer {
+        text-align: center;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner">
+        <h1 id="heading">Save Names</h1>
+        <input id="name" type="text" />
+        <br />
+        <button id="save-btn">Save</button>
+        <button id="display">Display</button>
+        <button id="clear">Clear</button>
+        <br />
+        <br />
+        <div id="container"></div>
+      </div>
+    </div>
+
+    <script>
+      let name = document.getElementById("name");
+      let saveBtn = document.getElementById("save-btn");
+      let displayBtn = document.getElementById("display");
+      let container = document.getElementById("container");
+      let clearbtn = document.getElementById("clear");
+
+      saveBtn.addEventListener("click", save);
+      displayBtn.addEventListener("click", display);
+      clearbtn.addEventListener("click", clear);
+
+      let names = [];
+
+      function save() {
+        if (name.value) {
+          names.push(name.value);
+        }
+        name.value = "";
+        console.log(names);
+      }
+
+      function display() {
+        let thupro = ``;
+        for (let i = 0; i < names.length; i++) {
+          let temp = names[i];
+          thupro += `<h3>${temp}</h3>`;
+          //console.log(thupro);
+        }
+        container.innerHTML = thupro;
+      }
+
+      function clear() {
+        names = [];
+        container.innerHTML = "";
+      }
+    </script>
+    <footer>&copy; BOSC Name Saver 2024</footer>
+  </body>
+</html>

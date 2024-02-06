@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM-event-Basics</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      body {
+        background-color: #99BC85;
+      }
+      .outer {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .inner {
+        display: inline-block;
+        text-align: center;
+        background-color: gray;
+        border: 2px solid black;
+      }
+      #heading {
+        text-align: center;
+        margin-bottom: 10px;
+        background-color: rgb(50, 50, 50);
+        color: white;
+        padding: 5px;
+      }
+      button {
+        padding: 3px;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      footer {
+        margin-top: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="outer">
+      <div class="inner">
+        <h1 id="heading">Hello World</h1>
+        <button id="mybtn">Toggle</button>
+      </div>
+    </div>
+
+    <script>
+      let heading = document.getElementById("heading");
+      let btn = document.getElementById("mybtn");
+
+      btn.addEventListener("click", changeColor);
+      let state = true;
+      function changeColor() {
+        if (state == true) {
+          heading.style.color = "red";
+        } else {
+          heading.style.color = "green";
+        }
+        state = !state;
+      }
+    </script>
+    <footer>&copy; BOSC Color Toggler 2024</footer>
+  </body>
+</html>

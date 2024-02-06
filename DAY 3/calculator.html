@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator-App</title>
+    <style>
+      * {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #99BC85;
+      }
+
+      .outer {
+        margin-top: 50px;
+        text-align: center;
+        padding: 10px 0;
+      }
+
+      .inner {
+        display: inline-block;
+        background-color: gray;
+        border: 2px solid black;
+      }
+
+      h1,
+      h2 {
+        text-align: center;
+        background-color: rgb(50, 50, 50);
+        color: white;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+
+      input {
+        margin-bottom: 10px;
+        width: 100px;
+        padding: 5px;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+      #op {
+        width: 55px;
+        padding: 2px 0;
+      }
+
+      #clear {
+        width: 55px;
+        padding: 2px 5px;
+      }
+
+      #result {
+        margin-top: 10px;
+        height: 1em;
+        color: white;
+        margin-bottom: 0;
+      }
+      footer {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner">
+        <h1>Calculator</h1>
+        <input id="a" type="text" placeholder="0" />
+        <br />
+        <input id="b" type="text" placeholder="0" />
+        <br />
+        <button id="op">Add</button>
+        <button id="clear">Clear</button>
+        <br />
+        <h2 id="result"></h2>
+      </div>
+    </div>
+    <script>
+      let a = document.getElementById("a");
+      let b = document.getElementById("b");
+      let op = document.getElementById("op");
+      let result = document.getElementById("result");
+      let clearbtn = document.getElementById("clear");
+
+      op.addEventListener("click", calculate);
+      clearbtn.addEventListener("click", clearEverything);
+
+      function clearEverything() {
+        a.value = "";
+        b.value = "";
+        result.innerText = "";
+      }
+
+      function calculate() {
+        let res = parseInt(a.value) + parseInt(b.value);
+        result.innerText = res;
+        a.value = "";
+        b.value = "";
+      }
+    </script>
+    <footer>&copy; BOSC Calculator 2024</footer>
+  </body>
+</html>
